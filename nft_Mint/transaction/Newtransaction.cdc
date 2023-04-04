@@ -4,7 +4,7 @@ import NonFungibleToken from 0x02
 transaction(recipient: Address, name: String, favouriteFood: String, luckyNumber: Int) {
 
   prepare(acct: AuthAccount) {
-    let nftMinter = acct.borrow<&CryptoPoops.Minter>(from: /storage/Minter) ?? panic("nft minter Missing")
+    let nftMinter = acct.borrow<&CryptoPoops.Minter>(from: /storage/Minter) ?? panic("nft Missing")
 
     let publicRefrence = getAccount(recipient).getCapability(/public/Collection) 
                           .borrow<&CryptoPoops.Collection{NonFungibleToken.CollectionPublic}>() 
@@ -14,6 +14,6 @@ transaction(recipient: Address, name: String, favouriteFood: String, luckyNumber
   }
 
   execute {
-    log("Huraayy!!! Nft Minted")
+    log(" Nft Minted")
   }
 }
